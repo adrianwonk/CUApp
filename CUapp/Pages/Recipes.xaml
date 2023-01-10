@@ -1,0 +1,92 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="CUapp.Recipes"
+    Title="Recipes"
+    BackgroundColor="WhiteSmoke"
+    xmlns:local="clr-namespace:CUapp;assembly=CUapp"
+    xmlns:rv="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame">
+
+    <StackLayout x:Name="stack" BackgroundColor="WhiteSmoke">
+        <SearchBar TextChanged="SearchBar_TextChanged"
+                   BackgroundColor="WhiteSmoke"
+                   TextColor="Black"
+                   PlaceholderColor="DarkGray"
+                   CancelButtonColor="Red"
+                   Placeholder="recipe name"
+                   Margin="10,0"
+                   ></SearchBar>
+
+        
+        <!--<SearchBar BackgroundColor="WhiteSmoke"
+                   TextChanged="labelSearch_TextChanged"
+                   TextColor="Black"
+                   PlaceholderColor="DarkGray"
+                   Placeholder="labels *seperate with commas*"
+                   ></SearchBar>-->
+        <Grid RowDefinitions="10*">
+            <CollectionView 
+                            BackgroundColor="WhiteSmoke"
+                            Margin="0,10,0,0" HeightRequest="10000"
+                            x:Name="collectionView"
+                            SelectionMode="Single"
+                        
+                            SelectionChanged="collectionView_SelectionChanged">
+
+                <CollectionView.ItemTemplate>
+                    <DataTemplate>
+                        <Grid Padding="20,0,20,30">
+                            <VisualStateManager.VisualStateGroups>
+                                <VisualStateGroup Name="CommonStates">                        
+                                    <VisualState Name="Selected">
+                                        <VisualState.Setters>
+                                            <Setter Property="BackgroundColor" Value="WhiteSmoke" />
+                                        </VisualState.Setters>
+                                    </VisualState>
+                                </VisualStateGroup>
+                            </VisualStateManager.VisualStateGroups>
+
+                            <rv:MaterialFrame AcrylicGlowColor="Transparent" LightThemeBackgroundColor="LightGray"
+                                              Padding="0" Margin="0" IsClippedToBounds="True" Style="{StaticResource AcrylicFrameRecipe}"
+                                              >
+                                <Frame CornerRadius="10" 
+                                    Padding="0"
+                                    IsClippedToBounds="True"
+                                       HasShadow="False">
+                                    <Image Aspect="AspectFill" Source="{Binding buttonImg}"/>
+                                </Frame>
+
+                            </rv:MaterialFrame>
+
+                            <Label Text="{Binding title}" FontSize="22" TextColor="Black"  VerticalOptions="Center" HorizontalOptions="Center">
+                                </Label>
+                        </Grid>
+                    </DataTemplate>
+                </CollectionView.ItemTemplate>
+
+
+            </CollectionView>
+
+            <rv:MaterialFrame Style="{StaticResource AcrylicFrame}"
+                              LightThemeBackgroundColor="LightBlue"
+                              AcrylicGlowColor="Transparent"
+                              HasShadow="False"
+                              Margin="20,0,20,30" Grid.Row="4" Grid.RowSpan="2"
+                              CornerRadius="25">
+                <Button x:Name="labelbtn"
+                        Text="labels"
+                        FontSize="Medium"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        BackgroundColor="Transparent"
+                        WidthRequest="10000"
+                        HeightRequest="10000"
+                        Clicked="labelbtn_Clicked"
+                        Margin="-20"
+                        />
+            </rv:MaterialFrame>
+        </Grid>
+    </StackLayout>
+
+</ContentPage>

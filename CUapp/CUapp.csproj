@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <ProduceReferenceAssembly>true</ProduceReferenceAssembly>
+    <LangVersion>9.0</LangVersion>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DebugType>portable</DebugType>
+    <DebugSymbols>true</DebugSymbols>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Xamarin.Forms" Version="5.0.0.2083" />
+    <PackageReference Include="Xamarin.Essentials" Version="1.7.0" />
+    <PackageReference Include="Sharpnado.Presentation.Forms" Version="1.7.1" />
+    <PackageReference Include="Sharpnado.MaterialFrame" Version="1.1.4" />
+    <PackageReference Include="Google.Apis.Sheets.v4" Version="1.55.0.2371" />
+    <PackageReference Include="Rg.Plugins.Popup" Version="2.0.0.12" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Sharpnado.Presentation.Forms" />
+    <None Remove="Sharpnado.MaterialFrame" />
+    <None Remove="Models\" />
+    <None Remove="Models and Classes\Models\" />
+    <None Remove="Master files\" />
+    <None Remove="images\" />
+    <None Remove="Google.Apis.Sheets.v4" />
+    <None Remove="Pages\" />
+    <None Remove="Sheets\" />
+    <None Remove="client_secret.json" />
+    <None Remove="images\spagMeatball_a.jpeg" />
+    <None Remove="Rg.Plugins.Popup" />
+    <None Remove="images\西班牙沙甸魚燉飯.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models and Classes\" />
+    <Folder Include="Models and Classes\Models\" />
+    <Folder Include="Master files\" />
+    <Folder Include="images\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Sheets\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="recipePagexaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </None>
+  </ItemGroup>
+  
+  <ItemGroup>
+    <EmbeddedResource Include="client_secret.json" />
+    <EmbeddedResource Include="images\spagMeatball.jpeg" />
+    <EmbeddedResource Include="images\西班牙沙甸魚燉飯.jpeg" />
+  </ItemGroup>
+</Project>

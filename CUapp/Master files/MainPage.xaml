@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Shell
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:CUapp"
+    x:Class="CUapp.MainPage"
+    >
+
+    <Shell.Resources>
+        <Style x:Key="BaseStyle" TargetType="Element">
+                <Setter Property="Shell.BackgroundColor" Value="WhiteSmoke" />
+                <Setter Property="Shell.ForegroundColor" Value="DarkSlateBlue" />
+                <Setter Property="Shell.TitleColor" Value="Black" />
+                <Setter Property="Shell.DisabledColor" Value="#B4FFFFFF" />
+                <Setter Property="Shell.UnselectedColor" Value="#95FFFFFF" />
+                
+                <Setter Property="Shell.TabBarUnselectedColor" Value="Gray" />
+                <Setter Property="Shell.TabBarTitleColor" Value="Black" />
+            </Style>
+            <Style BasedOn="{StaticResource BaseStyle}" TargetType="TabBar" />
+    </Shell.Resources>
+
+    <TabBar>
+        <ShellContent Title="Recipes" Icon="icon.png" IsTabStop="True" ContentTemplate="{DataTemplate local:Recipes}"/>
+        <ShellContent Title="Favorites" Icon="icon.png" IsTabStop="True" ContentTemplate="{DataTemplate local:Favorites}"/>
+    </TabBar>
+
+    </Shell>

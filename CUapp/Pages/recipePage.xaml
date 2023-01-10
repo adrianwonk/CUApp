@@ -1,0 +1,214 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ContentPage
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:rv="clr-namespace:Sharpnado.MaterialFrame;assembly=Sharpnado.MaterialFrame"
+    x:Class="CUapp.recipePage"
+    Title="Spaghetti Meatball"
+    BackgroundColor="WhiteSmoke">
+    <ContentPage.Content>
+        <ScrollView x:Name="sm">
+            <StackLayout VerticalOptions="Start" HorizontalOptions="Center" Spacing="0">
+
+                <Grid>
+                <ImageButton
+                    x:Name="pic"
+                    HeightRequest="200"
+                    Clicked="favorited"
+                    Aspect="AspectFill"
+                    >
+                </ImageButton>
+                    <Label
+                        x:Name="rectangle"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center"
+                        FontSize="Large"
+                        TextColor="White"
+                        Text="Click me to favorite!"
+                        >
+                        
+                    </Label>
+                </Grid>
+
+
+                <Label x:Name="difficulty"
+                       FontSize="Large" Margin="10,40,0,0"/>
+
+                <Label x:Name="foodType"
+                       FontSize="Large" Margin="10,10,0,0"/>
+
+                <Label x:Name="foodAmount"
+                       FontSize="Large" Margin="10,10,0,0"/>
+
+                <Label x:Name="prepTime"
+                       FontSize="Large" Margin="10,10,0,0"/>
+
+                <Label x:Name="cookingTime"
+                       FontSize="Large" Margin="10,10,0,0"/>
+
+
+                <rv:MaterialFrame Margin="0,45,0,15" BackgroundColor="LightSteelBlue" LightThemeBackgroundColor="LightSteelBlue">
+                    <Label
+                        Text="Ingredients"
+                        TextColor="Black"
+                        FontSize="Title"
+                        FontAttributes="Bold,Italic"
+                        TextDecorations="Underline"
+
+                        HorizontalOptions="Center"
+                        Padding="10">
+                    </Label>
+                </rv:MaterialFrame>
+
+                <CollectionView x:Name="ingredients" HeightRequest="500">
+                    <!--todo-->
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="0,0,0,1">
+                                <rv:MaterialFrame LightThemeBackgroundColor="Transparent" Style="{StaticResource AcrylicFrame}" CornerRadius="3" AcrylicGlowColor="{Binding glowColor}" Padding="0,7.5">
+                                    <Label
+                                        Text="{Binding text}"
+                                        TextColor="Black"
+                                        FontSize="Large"
+                                        Background="transparent"
+                                        VerticalTextAlignment="Center"
+                                        Padding="15,0,0,0"
+                                        >
+                                    </Label>
+                                </rv:MaterialFrame>
+                                <Label
+                                    Text="{Binding step}"
+                                    TextColor="DarkSlateGray"
+                                    Margin="0,0,15,0"
+                                    VerticalTextAlignment="Center"
+                                    HorizontalTextAlignment="End"
+                                        >
+                                    </Label>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+                <rv:MaterialFrame Margin="0,45,0,15" BackgroundColor="LightSalmon" LightThemeBackgroundColor="LightSalmon">
+                    <Label
+                        Text="Instructions:"
+                        TextColor="Black"
+                        FontSize="Title"
+                        FontAttributes="Bold,Italic"
+                        TextDecorations="Underline"
+
+                        HorizontalOptions="Center"
+                        Padding="10">
+                    </Label>
+                </rv:MaterialFrame>
+
+                <CollectionView x:Name="howto" HeightRequest="500">
+                    <!--todo-->
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="0,0,0,1" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <rv:MaterialFrame LightThemeBackgroundColor="Transparent" Style="{StaticResource AcrylicFrame}" CornerRadius="3" AcrylicGlowColor="{Binding glowColor}" Padding="0,7.5">
+                                    <Label
+                                        TextColor="Black"
+                                        FontSize="Large"
+                                        Background="transparent"
+                                        Margin="50,0,15,0"
+                                        FormattedText="{Binding text}"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        LineBreakMode="WordWrap"
+                                        >
+                                    </Label>
+                                </rv:MaterialFrame>
+                                <Label Text="{Binding step}"
+                                       FontAttributes="Bold"
+                                       TextColor="Black"
+                                       FontSize="Large"
+                                       TextDecorations="Underline"
+                                       VerticalTextAlignment="Center"
+                                       VerticalOptions="Center"
+                                       Margin="15,0,0,0"></Label>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+                <rv:MaterialFrame Margin="0,45,0,15" BackgroundColor="LightGoldenrodYellow" LightThemeBackgroundColor="LightGoldenrodYellow">
+                    <Label
+                        Text="Nutritional Tips:"
+                        TextColor="Black"
+                        FontSize="Title"
+                        FontAttributes="Bold,Italic"
+                        TextDecorations="Underline"
+
+                        HorizontalOptions="Center"
+                        Padding="10">
+                    </Label>
+                </rv:MaterialFrame>
+
+                <CollectionView x:Name="nutrTips" HeightRequest="300" Margin="0,0,0,0">
+                    <!--todo-->
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Padding="0,0,0,1" Margin="0,0,0,0" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <rv:MaterialFrame LightThemeBackgroundColor="Transparent" Style="{StaticResource AcrylicFrame}" CornerRadius="3" AcrylicGlowColor="{Binding glowColor}" Padding="0,7.5">
+                                    <Label
+                                        TextColor="Black"
+                                        FontSize="Large"
+                                        Background="transparent"
+                                        Margin="15,0,15,0"
+                                        FormattedText="{Binding text}"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        LineBreakMode="WordWrap"
+                                        >
+                                    </Label>
+                                </rv:MaterialFrame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+                <rv:MaterialFrame Margin="0,0,0,15" BackgroundColor="LightGreen" LightThemeBackgroundColor="LightGreen">
+                    <Label
+                        Text="Cooking Tips:"
+                        TextColor="Black"
+                        FontSize="Title"
+                        FontAttributes="Bold,Italic"
+                        TextDecorations="Underline"
+
+                        HorizontalOptions="Center"
+                        Padding="10">
+                    </Label>
+                </rv:MaterialFrame>
+
+                <CollectionView x:Name="cookTips" MinimumHeightRequest="0" HeightRequest="500" Margin="0,0,0,0">
+                    <!--todo-->
+                    <CollectionView.ItemTemplate>
+                        <DataTemplate>
+                            <Grid Margin="0,0,0,0" Padding="0,0,0,1" VerticalOptions="StartAndExpand" HorizontalOptions="CenterAndExpand" >
+                                <rv:MaterialFrame LightThemeBackgroundColor="Transparent" Style="{StaticResource AcrylicFrame}" CornerRadius="3" AcrylicGlowColor="{Binding glowColor}" Padding="0,7.5">
+                                    <Label
+                                        TextColor="Black"
+                                        FontSize="Large"
+                                        Background="transparent"
+                                        Margin="15,0,15,0"
+                                        FormattedText="{Binding text}"
+                                        VerticalOptions="CenterAndExpand"
+                                        VerticalTextAlignment="Center"
+                                        LineBreakMode="WordWrap"
+                                        >
+                                    </Label>
+                                </rv:MaterialFrame>
+                            </Grid>
+                        </DataTemplate>
+                    </CollectionView.ItemTemplate>
+                </CollectionView>
+
+
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>
